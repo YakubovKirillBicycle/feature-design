@@ -1,5 +1,5 @@
 import { lazy } from "react";
-import { Routes, Navigate } from "react-router";
+import { Routes } from "react-router";
 import { Route } from "react-router-dom";
 
 const TestPage = lazy(() => import("pages/testPage"));
@@ -9,8 +9,7 @@ export const Routing = () => {
     return (
         <Routes>
             <Route path="/" element={<TestPage />} />
-            <Route path="/404" element={<PageNotFound />} />
-            <Navigate to="/404" />
+            <Route path="*" element={<PageNotFound />} />
         </Routes>
     );
 };
