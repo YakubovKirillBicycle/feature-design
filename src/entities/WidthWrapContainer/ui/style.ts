@@ -1,0 +1,1 @@
+export const WRAPPER_CONTAINER = 'min-w-[270px] max-w-[1200px] w-[85%] max-sm:w-[100%]';
