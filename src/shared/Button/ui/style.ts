@@ -1,0 +1,15 @@
+export const buttonStyle = [
+  "bg-slate-500",
+  "hover:bg-slate-300",
+  "text-slate-100",
+  "hover:text-slate-600",
+  "font-light",
+  "py-1",
+  "px-3",
+  "ml-1",
+  "mr-1",
+  "border",
+  "border-slate-100",
+  "rounded",
+  "shadow",
+].join(' ');
