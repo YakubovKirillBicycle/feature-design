@@ -1,7 +1,7 @@
 import { memo } from "react";
 
 const TestPage = () => {
-    return <div>Test Page</div>;
+    return <div className="bg-slate-300">Test Page</div>;
 };
 
 export default memo(TestPage);
