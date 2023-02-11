@@ -1,5 +1,6 @@
 import { memo } from "react";
 
+import Logo from "entities/Logo";
 import WidthWrapContainer from "entities/WidthWrapContainer";
 
 import { headerStyle } from "./ui/style";
@@ -8,8 +9,7 @@ const Header = () => {
   return ( 
     <header className={headerStyle}>
       <WidthWrapContainer>
-        <span>Header</span>
-        <span>Second header</span>
+        <Logo />
       </WidthWrapContainer>
     </header>
    );
