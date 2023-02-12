@@ -1,8 +1,8 @@
-import TransparentButton from "shared/Button";
+import CustomButton from "shared/Button";
 
 const RegisterButton = () => {
   return ( 
-    <TransparentButton buttonText="Register" />
+    <CustomButton buttonText="Register" />
    );
 }
  

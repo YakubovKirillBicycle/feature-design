@@ -1,8 +1,8 @@
-import TransparentButton from "shared/Button";
+import CustomButton from "shared/Button";
 
-const LoginButton = () => {
+const LoginButton = (props: React.ButtonHTMLAttributes<HTMLButtonElement>) => {
   return ( 
-    <TransparentButton buttonText="Login" />
+    <CustomButton buttonText="Login" buttonProps={{ ...props }} />
    );
 }
  

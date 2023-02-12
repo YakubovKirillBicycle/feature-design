@@ -13,7 +13,7 @@ const Header = () => {
       <WidthWrapContainer>
         <div className="flex justify-between">
           <Logo />
-          <div>
+          <div className="flex space-x-2">
             <Login />
             <Register />
           </div>
