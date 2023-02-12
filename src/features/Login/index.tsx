@@ -3,7 +3,12 @@ import { useState } from "react";
 import LoginButton from "entities/LoginButton";
 import CustomButton from "shared/Button";
 
-const LoginInterface = () => {
+interface LoginInterfaceProps {
+  onToggle?: VoidFunction,
+}
+
+const LoginInterface = (props: LoginInterfaceProps) => {
+  const { onToggle } = props;
   return (
     <div className="bg-gray-800/40 absolute top-0 left-0 w-screen h-screen flex justify-center items-center">
       <div className="bg-slate-100 w-[260px] h-[300px] rounded-md shadow-md shadow-slate-500 font-light text-slate-800 text-xl p-4">
@@ -17,8 +22,8 @@ const LoginInterface = () => {
         <input type="checkbox" name="remember-flag" id="remember-flag" className="border-slate-200 border-solid border-2 rounded-sm mr-2 hover:cursor-pointer" />
         <label htmlFor="remember-flag">Remember me</label>
         <div className="space-x-2 mt-5">
-          <CustomButton buttonText="Login" buttonType="normal" />
-          <CustomButton buttonText="Cancel" buttonType="transparentDark" />
+          <CustomButton buttonText="Login" buttonType="normal" buttonProps={{ onClick: onToggle }} />
+          <CustomButton buttonText="Cancel" buttonType="transparentDark" buttonProps={{ onClick: onToggle }} />
         </div>
       </div>
     </div>
@@ -31,12 +36,11 @@ const Login = () => {
   const toggleOpen = () => {
     setOpen((prev) => !prev);
   }
-  console.log(open)
 
   return (
     <div>
       <LoginButton onClick={toggleOpen} />
-      <LoginInterface />
+      {open && <LoginInterface onToggle={toggleOpen} />}
     </div>
     
   );
