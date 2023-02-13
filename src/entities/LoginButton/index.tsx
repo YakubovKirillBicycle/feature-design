@@ -1,4 +1,4 @@
-import CustomButton from "shared/Button";
+import CustomButton from "shared/ui/Button";
 
 const LoginButton = (props: React.ButtonHTMLAttributes<HTMLButtonElement>) => {
   return ( 

@@ -2,8 +2,8 @@ import { memo } from "react";
 
 import ModalContent from "entities/ModalContent";
 import ModalWrap from "entities/ModalWrap";
-import CustomButton from "shared/Button";
-import InputField from "shared/Input";
+import CustomButton from "shared/ui/Button";
+import InputField from "shared/ui/Input";
 
 interface LoginInterfaceProps {
     onToggle?: VoidFunction,
