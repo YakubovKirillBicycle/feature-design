@@ -1,6 +1,6 @@
-import LogoImage from "shared/LogoImage";
+import LogoImage from "shared/ui/LogoImage";
 
-import { LogoStyle } from "./ui/style";
+import { LogoStyle } from "./style";
 
 const Logo = () => {
   return ( 

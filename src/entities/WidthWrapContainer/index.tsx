@@ -1,6 +1,6 @@
 import { ReactNode, memo } from "react";
 
-import { WRAPPER_CONTAINER } from "./ui/style";
+import { WRAPPER_CONTAINER } from "./style";
 
 interface Props { children: ReactNode }
 

@@ -1,6 +1,6 @@
 import React, { lazy, memo } from "react";
 
-import { mainWrapStyle } from "./ui/style";
+import { mainWrapStyle } from "./style";
 
 const Header = lazy(() => import("widgets/Header"));
 const Footer = lazy(() => import("widgets/Footer"));
