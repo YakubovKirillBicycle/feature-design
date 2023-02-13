@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 
-import { modalBgStyle } from "./ui/style";
+import { modalBgStyle } from "./style";
 
 interface Props { children: ReactNode }
 

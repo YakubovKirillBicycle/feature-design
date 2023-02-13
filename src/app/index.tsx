@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Routing } from 'processes';
+import { Routing } from 'pages';
 
 import { withProviders } from "./providers";
 
