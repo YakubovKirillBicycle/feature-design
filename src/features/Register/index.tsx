@@ -1,7 +1,7 @@
-import RegisterButton from "entities/RegisterButton";
+import CustomButton from "shared/ui/Button";
 
 const Register = () => {
-  return ( <RegisterButton /> );
+  return ( <CustomButton buttonText="Register" /> );
 }
  
 export default Register;

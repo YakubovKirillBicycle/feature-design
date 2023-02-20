@@ -1,5 +1,4 @@
-import LogoImage from "shared/ui/LogoImage";
-
+import LogoImage from "./LogoImage";
 import { LogoStyle } from "./style";
 
 const Logo = () => {

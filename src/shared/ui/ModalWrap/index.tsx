@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
 
+import ModalContent from "./ModalContent";
 import { modalBgStyle } from "./style";
 
 interface Props { children: ReactNode }
@@ -7,7 +8,9 @@ interface Props { children: ReactNode }
 const ModalWrap = ({ children }: Props) => {
     return (
         <div className={modalBgStyle}>
-            {children}
+            <ModalContent>
+                {children}
+            </ModalContent>
         </div> );
 }
  

@@ -1,13 +1,11 @@
-import { memo } from "react";
-
-import Logo from "entities/Logo";
-import WidthWrapContainer from "entities/WidthWrapContainer";
-import Login from "features/Login";
+import { Login } from "features/Login";
 import Register from "features/Register";
+import Logo from "shared/ui/Logo";
+import { WidthWrapContainer } from "shared/ui/WidthWrapContainer";
 
 import { headerStyle } from "./ui/style";
 
-const Header = () => {
+export const Header = () => {
   return ( 
     <header className={headerStyle}>
       <WidthWrapContainer>
@@ -22,5 +20,3 @@ const Header = () => {
     </header>
    );
 }
- 
-export default memo(Header);

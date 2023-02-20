@@ -1,5 +1,2 @@
-import Logo from "./Logo";
-import ModalWrap from "./ModalWrap";
-import WidthWrapContainer from "./WidthWrapContainer";
-
-export default { WidthWrapContainer, Logo, ModalWrap };
+export * as UserModel from './User';
+export * as CardModel from './Card';

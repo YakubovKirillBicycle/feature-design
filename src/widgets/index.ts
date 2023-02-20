@@ -1,5 +1,5 @@
 import Content from "./Content";
 import Footer from "./Footer";
-import Header from "./Header";
+import { Header } from "./Header";
 
 export default { Header, Footer, Content };
