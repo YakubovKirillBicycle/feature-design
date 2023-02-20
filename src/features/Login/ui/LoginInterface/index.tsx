@@ -22,7 +22,6 @@ export const LoginInterface = (props: LoginInterfaceProps) => {
       mode: 'onChange',
       resolver: yupResolver(schema),
     });
-    console.log('ddd');
     const onSubmit = () => { console.log(getValues()) };
     return (
       <ModalWrap>
@@ -57,7 +56,11 @@ export const LoginInterface = (props: LoginInterfaceProps) => {
               buttonProps={{ type: 'submit' }}
               disabled={!formState.isValid}
             />
-            <CustomButton buttonText="Cancel" buttonType="transparentDark" buttonProps={{ onClick: onToggle }} />
+            <CustomButton
+              buttonText="Cancel"
+              buttonType="transparentDark"
+              buttonProps={{ onClick: onToggle }}
+            />
           </div>
         </form>
       </ModalWrap>
