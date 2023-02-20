@@ -1,2 +1,4 @@
-export * as UserModel from './User';
-export * as CardModel from './Card';
+import { CardModel } from './Card';
+import { UserModel } from './User';
+
+export default { UserModel, CardModel };
