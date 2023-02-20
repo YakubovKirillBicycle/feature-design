@@ -1,13 +1,11 @@
+import React, { forwardRef } from "react";
+
 import { inputFieldStyle } from "./ui/style";
 
+const InputField = forwardRef<HTMLInputElement, React.InputHTMLAttributes<HTMLInputElement>>((props) => {
+    return <input className={inputFieldStyle} {...props} />
+})
 
-const InputField = (props: React.InputHTMLAttributes<HTMLInputElement>) => {
-    return (
-        <input
-            className={inputFieldStyle}
-            {...props}
-        />
-    );
-}
+InputField.displayName = 'InputField'
  
 export default InputField;

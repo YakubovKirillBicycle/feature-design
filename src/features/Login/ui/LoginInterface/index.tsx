@@ -1,5 +1,4 @@
 import { yupResolver } from "@hookform/resolvers/yup";
-import { useEffect, useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import * as yup from "yup";
 
@@ -23,7 +22,7 @@ export const LoginInterface = (props: LoginInterfaceProps) => {
       mode: 'onChange',
       resolver: yupResolver(schema),
     });
-
+    console.log('ddd');
     const onSubmit = () => { console.log(getValues()) };
     return (
       <ModalWrap>
