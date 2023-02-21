@@ -4,7 +4,7 @@ import { EMPTY_USER, User } from "entities/User/model";
 
 const initialState = { ...EMPTY_USER };
 
-export const userSlice = createSlice({
+const userSlice = createSlice({
   name: 'user',
   initialState,
   reducers: {
@@ -13,6 +13,5 @@ export const userSlice = createSlice({
   }
 })
 
-export const { setUser, clearUser } = userSlice.actions;
-
-export default userSlice.reducer;
+export const UserActions = { ...userSlice.actions };
+export const UserReducer = userSlice.reducer;

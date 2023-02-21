@@ -1,17 +1,19 @@
 import React, { useState } from 'react';
 
+// eslint-disable-next-line no-restricted-imports
 import { useAppSelector, useAppDispatch } from '../../app/helpers/hooks';
+
 import {
   decrement,
   increment,
   incrementByAmount,
   incrementAsync,
   incrementIfOdd,
-  selectCount,
+  // selectCount,
 } from './counterSlice';
 
 export function Counter() {
-  const count = useAppSelector(selectCount);
+  // const count = useAppSelector(selectCount);
   const dispatch = useAppDispatch();
   const [incrementAmount, setIncrementAmount] = useState('2');
 

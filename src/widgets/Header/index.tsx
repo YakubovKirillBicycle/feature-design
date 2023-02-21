@@ -1,16 +1,18 @@
 import { useState } from "react";
 
-import { Login } from "features";
+import { useAppSelector } from "app/helpers/hooks";
 import Register from "features/Register";
 import Logo from "shared/ui/Logo";
 import { WidthWrapContainer } from "shared/ui/WidthWrapContainer";
 
+import { LoginComponent } from "./ui/Login";
 import { headerStyle } from "./ui/style";
 import { UserInterface } from "./ui/UserInterface";
 
 
 export const Header = () => {
-  const [isUser, setIsUser] = useState(true);
+  const [isUser, setIsUser] = useState(false);
+  const user = useAppSelector((state) => state.user);
 
   return ( 
     <header className={headerStyle}>
@@ -18,11 +20,11 @@ export const Header = () => {
         <div className="flex justify-between">
           <Logo />
           {
-            isUser ?
-              <UserInterface userName="User Name" role="admin" />
+            user.nickname.length ?
+              <UserInterface userName={user.nickname} role={user.role} />
               :
               <div className="flex space-x-2">
-                <Login />
+                <LoginComponent />
                 <Register />
               </div>
             }
