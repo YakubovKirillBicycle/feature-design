@@ -1,23 +1,30 @@
-import { useEffect, useState } from "react";
+// import { useAppDispatch, useAppSelector } from "app/helpers/hooks";
+import { useDispatch } from "react-redux";
 
-import { useAppSelector } from "app/helpers/hooks";
-import { User } from "entities/User/model";
-import { UserActions, useUserDispatch, useUserSelector } from "features/Login2/model";
+import { UserModel } from "entities/User";
 import Logo from "shared/ui/Logo";
 import { WidthWrapContainer } from "shared/ui/WidthWrapContainer";
 
 import { headerStyle } from "./ui/style";
 import { UserStatus } from "./ui/UserStatus";
 
+// import Login2 from "features/Login2";
 
 export const Header = () => {
   // const [localUser, setLocalUser] = useState<User | undefined>(undefined)
-  const user = useUserSelector((state) => state);
+  const user = UserModel.userSelector();
   // const appUser = useAppSelector((state) => state.user);
-  const dispatch = useUserDispatch();
+  // const dispatch = useAppDispatch();
+  const dispatch = useDispatch();
 
   const logoutHandle = () => {
-    dispatch(UserActions.clearUser());
+    // dispatch(Login2.LoginModel.UserActions.clearUser());
+    dispatch(UserModel.clearUser())
+  }
+
+  const loginSubmitHandle = (userName: string, password: string) => {
+    // dispatch(Login2.LoginModel.UserActions.setUser(user))
+    UserModel.getUserAsync(userName, password)(dispatch);
   }
 
   // useEffect(() => {
@@ -33,7 +40,11 @@ export const Header = () => {
       <WidthWrapContainer>
         <div className="flex justify-between">
           <Logo />
-          <UserStatus user={user} onLogOut={logoutHandle} />
+          <UserStatus
+            user={user}
+            onLogOut={logoutHandle}
+            onSubmit={loginSubmitHandle}
+          />
         </div>
       </WidthWrapContainer>
     </header>

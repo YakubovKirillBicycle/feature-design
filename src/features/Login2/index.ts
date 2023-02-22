@@ -1,11 +1,4 @@
-import {
-    UserActions,
-    useUserDispatch,
-    useUserSelector,
-} from './model';
+import * as LoginModel from './model';
+import LoginUser from './ui';
 
-export default {
-    UserActions,
-    useUserDispatch,
-    useUserSelector,
-};
+export default { LoginModel, LoginUser };
