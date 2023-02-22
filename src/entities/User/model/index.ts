@@ -9,6 +9,11 @@ export enum Status {
     'offline',
 }
 
+export interface IUserData {
+    nickname: string,
+    password: string,
+}
+
 export interface User {
     id: string,
     nickname: string,

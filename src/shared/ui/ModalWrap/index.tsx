@@ -1,11 +1,13 @@
-import { ReactNode } from "react";
-
 import ModalContent from "./ModalContent";
 import { modalBgStyle } from "./style";
 
-interface Props { children: ReactNode }
+interface Props {
+    children: React.ReactNode
+}
 
-const ModalWrap = ({ children }: Props) => {
+const ModalWrap = (props: Props) => {
+    const { children } = props;
+
     return (
         <div className={modalBgStyle}>
             <ModalContent>

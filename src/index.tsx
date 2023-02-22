@@ -3,10 +3,10 @@ import { createRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
 
 import App from 'app';
-
 import './index.css';
-import { store } from './app/store/store';
+import { store } from 'app/store/store';
 
+// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 const container = document.getElementById('root')!;
 const root = createRoot(container);
 

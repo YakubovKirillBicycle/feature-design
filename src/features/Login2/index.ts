@@ -1,3 +1,13 @@
-import { UserActions, UserReducer } from './model';
+import {
+    UserActions,
+    useUserDispatch,
+    useUserSelector,
+    userStore,
+} from './model';
 
-export default { UserActions, UserReducer };
+export default {
+    UserActions,
+    useUserDispatch,
+    useUserSelector,
+    userStore,
+};

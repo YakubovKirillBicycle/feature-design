@@ -1,4 +1,5 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { configureStore, createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 
 import { EMPTY_USER, User } from "entities/User/model";
 
@@ -15,3 +16,12 @@ const userSlice = createSlice({
 
 export const UserActions = { ...userSlice.actions };
 export const UserReducer = userSlice.reducer;
+
+export const useUserDispatch = useDispatch;
+export const useUserSelector: TypedUseSelectorHook<User> = useSelector
+
+export const userStore = configureStore({
+  reducer: {
+    user: UserReducer,
+  },
+});

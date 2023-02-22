@@ -2,9 +2,9 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { Controller, useForm } from "react-hook-form";
 
 
-import { useAppDispatch } from "app/helpers/hooks";
+// import { useAppDispatch } from "app/helpers/hooks";
 import { fetchUser } from "entities/User/api";
-import { UserActions } from "features/Login2/model";
+import { UserActions, useUserDispatch } from "features/Login2/model";
 import CustomButton from "shared/ui/Button";
 import InputField from "shared/ui/Input";
 import ModalWrap from "shared/ui/ModalWrap";
@@ -12,7 +12,7 @@ import ModalWrap from "shared/ui/ModalWrap";
 import { schemloginFormSchema } from "./helpers";
 
 interface LoginInterfaceProps {
-    onToggle?: VoidFunction,
+    onToggle: VoidFunction,
 }
 
 export const LoginInterface = (props: LoginInterfaceProps) => {
@@ -21,11 +21,12 @@ export const LoginInterface = (props: LoginInterfaceProps) => {
       mode: 'onChange',
       resolver: yupResolver(schemloginFormSchema),
     });
-    const dispatch = useAppDispatch();
+    const dispatch = useUserDispatch()
 
     const onSubmit = () => {
         const user = fetchUser(getValues().username, getValues().password)
         dispatch(UserActions.setUser(user))
+        onToggle();
     };
 
     return (

@@ -1,33 +1,39 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { useAppSelector } from "app/helpers/hooks";
-import Register from "features/Register";
+import { User } from "entities/User/model";
+import { UserActions, useUserDispatch, useUserSelector } from "features/Login2/model";
 import Logo from "shared/ui/Logo";
 import { WidthWrapContainer } from "shared/ui/WidthWrapContainer";
 
-import { LoginComponent } from "./ui/Login";
 import { headerStyle } from "./ui/style";
-import { UserInterface } from "./ui/UserInterface";
+import { UserStatus } from "./ui/UserStatus";
 
 
 export const Header = () => {
-  const [isUser, setIsUser] = useState(false);
-  const user = useAppSelector((state) => state.user);
+  // const [localUser, setLocalUser] = useState<User | undefined>(undefined)
+  const user = useUserSelector((state) => state);
+  // const appUser = useAppSelector((state) => state.user);
+  const dispatch = useUserDispatch();
 
-  return ( 
+  const logoutHandle = () => {
+    dispatch(UserActions.clearUser());
+  }
+
+  // useEffect(() => {
+  //   // if (user.id?.length > 0) setLocalUser({ ...user })
+  //   if (user.id?.length > 0) console.log({...user});
+  //   // else setLocalUser(undefined)
+  //   // setLocalUser(user)
+  //   // console.log(user);
+  // }, [user])
+
+  return (
     <header className={headerStyle}>
       <WidthWrapContainer>
         <div className="flex justify-between">
           <Logo />
-          {
-            user.nickname.length ?
-              <UserInterface userName={user.nickname} role={user.role} />
-              :
-              <div className="flex space-x-2">
-                <LoginComponent />
-                <Register />
-              </div>
-            }
+          <UserStatus user={user} onLogOut={logoutHandle} />
         </div>
       </WidthWrapContainer>
     </header>
