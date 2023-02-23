@@ -27,7 +27,7 @@ export const getUserAsync = (username: string, password: string) => async (dispa
             role: 'admin',
             status: 'online'
         }))
-    }, 0))
+    }, 1000))
 }
 
 export const userSelector = () => useSelector(
