@@ -5,3 +5,9 @@ export const schemloginFormSchema = yup.object().shape({
     password: yup.string().trim().min(4).max(10).required(),
     rememberFlag: yup.boolean(),
 });
+
+export const EMPTY_FORM = {
+    username: '',
+    password: '',
+    rememberFlag: 'false',
+}

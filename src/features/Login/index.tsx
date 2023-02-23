@@ -1,1 +1,3 @@
-export { Login } from './ui'
+import Login from "./ui";
+
+export { Login };
