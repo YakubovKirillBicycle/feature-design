@@ -17,8 +17,8 @@ export interface IUserData {
 export interface User {
   id: string,
   nickname: string,
-  status: keyof typeof Status,
-  role: keyof typeof Role,
+  status:  Status,
+  role: Role,
   cards: string[],
   friends: string[],
 }
@@ -26,8 +26,8 @@ export interface User {
 export const EMPTY_USER: User = {
   id: '',
   nickname: '',
-  status: 'offline',
-  role: 'guest',
+  status: Status.offline,
+  role: Role.guest,
   cards: [],
   friends: [],
 }
