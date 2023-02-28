@@ -4,11 +4,17 @@ import { Provider } from 'react-redux';
 
 import App from 'app';
 import './index.css';
-import { store } from 'app/store/store';
+// import { store } from 'app/store/store';
+import { UserModel } from 'entities/User';
+import { getAppStore } from 'shared/model';
 
 // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 const container = document.getElementById('root')!;
 const root = createRoot(container);
+
+const store = getAppStore({
+  user: UserModel.UserReducer
+});
 
 root.render(
   <Provider store={store}>

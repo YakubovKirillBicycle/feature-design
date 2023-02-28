@@ -37,7 +37,7 @@ const userSlice = createSlice({
             state.user = action.payload
         },
         clearUser: (state) => {
-        state.user = EMPTY_USER
+            state.user = EMPTY_USER
         }
     },
     extraReducers: (builder) => {

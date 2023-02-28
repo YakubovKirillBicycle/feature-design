@@ -1,9 +1,9 @@
 import { useAppDispatch } from "app/helpers/hooks";
 import { UserModel } from "entities/User";
+import { UserInterface } from "entities/User/ui/UserInterface";
 import { Login } from "features";
 import Register from "features/Register";
 import Logo from "shared/ui/Logo";
-import { UserInterface } from "shared/ui/UserInterface";
 import { WidthWrapContainer } from "shared/ui/WidthWrapContainer";
 
 import { headerStyle } from "./ui/style";
