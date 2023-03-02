@@ -5,7 +5,7 @@ const Logo = () => {
   return ( 
     <div className={LogoStyle}>
       <LogoImage width={35} />
-      <span className="ml-3">Hi Poke !</span>
+      <span className="ml-3">Cube</span>
     </div>
    );
 }
