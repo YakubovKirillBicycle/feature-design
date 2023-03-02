@@ -17,7 +17,7 @@ export const UserInterface = (props: IUserInterfaceProps) => {
     return (
         <div className="flex justify-center items-center">
             <div className=" w-[35px] h-[35px] rounded-lg mr-[10px]">
-                <img src={require('./UserIcon.png')} alt="User icon" />
+                <img src={require('./UserIcon.png')} alt="User" />
             </div>
             <div className="flex flex-col font-light">
                 <span>{userName}</span>
