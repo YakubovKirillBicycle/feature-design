@@ -10,7 +10,7 @@ export const fakeGetUser = (userName: string, password: string): Promise<User> =
         role: 'admin' as unknown as Role,
         status: 'online' as unknown as Status
     }
-    return new Promise(res => {
+    return new Promise((res) => {
         setTimeout(() => {
             res(newUser)
         }, 1000)

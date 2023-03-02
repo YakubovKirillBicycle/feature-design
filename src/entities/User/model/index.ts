@@ -1,11 +1,13 @@
 import { createAsyncThunk, createSelector, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { useSelector } from "react-redux";
 
+import { LoadingStatus } from "shared/model";
+
 import { fakeGetUser } from "../api";
 
 import { EMPTY_USER, User } from "./types";
 
-const initialState = { user: EMPTY_USER, status: 'idle' }
+const initialState = { user: EMPTY_USER, status: LoadingStatus.Done }
 
 const userSlice = createSlice({
     name: 'user',
@@ -22,10 +24,13 @@ const userSlice = createSlice({
         builder
         .addCase(getUserAction.fulfilled, (state, action: PayloadAction<User>) => {
             state.user = action.payload
-            state.status = 'idle'
+            state.status = LoadingStatus.Done
         })
         .addCase(getUserAction.pending, (state) => {
-            state.status = 'isPending'
+            state.status = LoadingStatus.Loading
+        })
+        .addCase(getUserAction.rejected, (state) => {
+            state.status = LoadingStatus.Error
         })
       },
 })

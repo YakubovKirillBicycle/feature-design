@@ -1,5 +1,5 @@
 export const inputFieldStyle = [
-    'w-[235px]',
+    'w-[100%]',
     'border-slate-200',
     'border-solid',
     'border-2',

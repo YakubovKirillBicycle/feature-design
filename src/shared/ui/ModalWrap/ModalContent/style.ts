@@ -1,6 +1,6 @@
 export const modalContentStyle = [
     'bg-slate-100',
-    'w-[270px]',
+    'w-max',
     'h-max',
     'rounded-md',
     'shadow-md',
