@@ -1,3 +1,4 @@
+import AppWrapper from "./ui/AppWrapper";
 import CustomButton from "./ui/Button";
 import InputField from "./ui/Input";
 import Logo from "./ui/Logo";
@@ -7,9 +8,10 @@ import { WidthWrapContainer } from "./ui/WidthWrapContainer";
 
 export default {
     LogoImage,
-    TransparentButton: CustomButton,
+    CustomButton,
     InputField,
     Logo,
     ModalWrap,
     WidthWrapContainer,
+    AppWrapper,
 };
