@@ -1,5 +1,4 @@
-import { EntityState, PayloadAction, SliceCaseReducers, createEntityAdapter, createSelector, createSlice } from "@reduxjs/toolkit"
-import { useSelector } from "react-redux"
+import { createEntityAdapter, createSlice } from "@reduxjs/toolkit"
 
 export enum MachineStatus {
     Active,

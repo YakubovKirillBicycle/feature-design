@@ -1,5 +1,3 @@
-import { MachineModel } from "entities/Machine";
-
 export const BELARUS = [
     'Brest',
     'Grodno',
@@ -453,7 +451,7 @@ export const USERS = [
     }
 ]
 
-export const MACHINE_STORE: MachineModel.Machine[] = [
+export const MACHINE_STORE = [
     {
         "id": "1e121626-0e1f-40af-ae1b-df24fad8ec5e",
         "name": "0_Machine",
