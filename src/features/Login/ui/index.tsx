@@ -1,21 +1,19 @@
 import { yupResolver } from "@hookform/resolvers/yup";
-import { useEffect, useState } from "react";
 import { Controller, useForm } from "react-hook-form";
+import { useNavigate } from "react-router";
 
 import { UserModel } from "entities/User";
 import { LoadingStatus, useAppDispatch } from "shared/model";
+import { APP_NAVIGATOR } from "shared/model/constants";
 import CustomButton from "shared/ui/Button";
 import InputField from "shared/ui/Input";
-import ModalWrap from "shared/ui/ModalWrap";
 
 import { EMPTY_FORM, schemloginFormSchema } from "../model/helpers";
 
-interface LoginFormProps {
-  toggleOpen: VoidFunction,
-}
+import { modalContentStyle } from "./style";
 
-const LoginForm = (props: LoginFormProps) => {
-  const { toggleOpen } = props;
+
+const Login = () => {
   const status = UserModel.userStatusSelector();
   const { handleSubmit, control, getValues, formState, reset } = useForm({
     mode: 'onChange',
@@ -23,6 +21,7 @@ const LoginForm = (props: LoginFormProps) => {
     resolver: yupResolver(schemloginFormSchema),
   });
   const dispatch = useAppDispatch();
+  const navigate = useNavigate()
 
   const onSubmitFormHandle = () => {
     dispatch(UserModel.getUserAction({
@@ -30,17 +29,18 @@ const LoginForm = (props: LoginFormProps) => {
       password: getValues().password,
     }));
     reset(EMPTY_FORM);
+    navigate(APP_NAVIGATOR.HOME)
   };
 
   const onCancelFormHandle = () => {
     reset(EMPTY_FORM);
-    toggleOpen()
+    navigate(APP_NAVIGATOR.HOME)
   }
 
   const submitButtonText = status === LoadingStatus.Loading ? 'Loading' : 'Login';
 
   return (
-      <ModalWrap>
+      <div className={modalContentStyle}>
         <form onSubmit={handleSubmit(onSubmitFormHandle)} className="w-[250px]">
           <div className="flex justify-center">
             <span>Login</span>
@@ -85,25 +85,8 @@ const LoginForm = (props: LoginFormProps) => {
             />
           </div>
         </form>
-      </ModalWrap>
+      </div>
   )
-}
-
-const Login = () => {
-  const [open, setOpen] = useState(false);
-
-  const toggleOpen = () => {
-    setOpen((prev) => !prev);
-  }
-
-  return (
-    <div>
-      <CustomButton buttonText="Login" buttonProps={{ onClick: toggleOpen }} />
-      {open && 
-        <LoginForm toggleOpen={toggleOpen} />
-      }
-    </div>
-  );
 }
 
 export default Login

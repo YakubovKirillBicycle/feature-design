@@ -2,6 +2,7 @@ import React, { lazy } from "react";
 import { Routes } from "react-router";
 import { Route } from "react-router-dom";
 
+import { APP_NAVIGATOR } from "shared/model/constants";
 import AppWrapper from "shared/ui/AppWrapper";
 import { WidthWrapContainer } from "shared/ui/WidthWrapContainer";
 import Footer from "widgets/Footer";
@@ -21,9 +22,9 @@ export const Routing = () => {
                 <WidthWrapContainer>
                     <div className={contentStyle}>
                         <Routes>
-                            <Route path="/" element={<HomePage />} />
-                            <Route path="/login" element={<LoginPage />} />
-                            <Route path="*" element={<PageNotFound />} />
+                            <Route path={APP_NAVIGATOR.HOME} element={<HomePage />} />
+                            <Route path={APP_NAVIGATOR.LOGIN} element={<LoginPage />} />
+                            <Route path={APP_NAVIGATOR.ANY_PAGE} element={<PageNotFound />} />
                         </Routes>
                     </div>
                 </WidthWrapContainer>

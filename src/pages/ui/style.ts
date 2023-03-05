@@ -7,4 +7,5 @@ export const contentWrapStyle = [
 export const contentStyle = [
     'px-4',
     'py-4',
+    'h-[100%]',
   ].join(' ');

@@ -1,6 +1,12 @@
+import { Login } from "features";
+
+
+
 const LoginPage = () => {
-    return ( 
-        <div>Login</div>
+    return (
+        <div className="flex items-center justify-center h-[100%]">
+            <Login />
+        </div>
      );
 }
  
