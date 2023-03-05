@@ -1,8 +1,10 @@
 import { memo } from "react";
 
 const Content = () => {
-  return ( 
-    <span>Hello</span>
+  return (
+    <div>
+      <span>Hello</span>
+    </div>
    );
 }
  
