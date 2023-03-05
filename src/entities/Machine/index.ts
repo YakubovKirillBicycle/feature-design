@@ -1,5 +1,1 @@
-import * as MachineModel from './model';
-
-export {
-    MachineModel
-};
+export * as MachineModel from './model';
