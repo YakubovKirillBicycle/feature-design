@@ -10,7 +10,12 @@ export const store = configureStore({
     reducer: {
       user: UserModel.UserReducer,
       machines: MachineModel.reducer,
-    }
+    },
+    middleware: (getDefaultMiddleware) => 
+      getDefaultMiddleware({
+        serializableCheck: false,
+      })
+    ,
   })
   
 export const withStore = (component: () => React.ReactNode) => () => {
