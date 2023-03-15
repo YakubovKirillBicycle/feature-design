@@ -2,17 +2,19 @@ import { useNavigate } from "react-router";
 
 import { UserModel } from "entities/User";
 import { UserInterface } from "entities/User/ui/UserInterface";
-import { useAppDispatch } from "shared/model";
-import { APP_NAVIGATOR } from "shared/model/constants";
-import CustomButton from "shared/ui/Button";
-import Logo from "shared/ui/Logo";
-import { WidthWrapContainer } from "shared/ui/WidthWrapContainer";
+import {
+  AppModel,
+  CustomButton,
+  GlobalConstant,
+  Logo,
+  WidthWrapContainer
+} from "shared";
 
 import { headerStyle } from "./ui/style";
 
 export const Header = () => {
   const user = UserModel.userSelector();
-  const dispatch = useAppDispatch();
+  const dispatch = AppModel.useAppDispatch();
   const navigate = useNavigate();
 
   const logoutHandle = () => {
@@ -20,7 +22,7 @@ export const Header = () => {
   }
 
   const loginClickHandle = () => {
-    navigate(APP_NAVIGATOR.LOGIN);
+    navigate(GlobalConstant.APP_NAVIGATOR.LOGIN);
   }
 
   return (

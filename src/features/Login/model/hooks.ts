@@ -1,15 +1,15 @@
 import { UserModel } from "entities/User";
-import { LoadingStatus, useAppDispatch } from "shared/model";
+import { AppModel } from "shared";
 
 interface IUseAuth {
     login: (userName: string, password: string) => void,
-    loadingState: LoadingStatus,
+    loadingState: AppModel.LoadingStatus,
     error: null | string,
     clearLoginError: VoidFunction;
 }
 
 export const useAuth = (): IUseAuth => {
-    const dispatch = useAppDispatch();
+    const dispatch = AppModel.useAppDispatch();
     const status = UserModel.userStatusSelector();
 
     const login = (userName: string, password: string) => {

@@ -1,5 +1,5 @@
 import { Role } from "entities/User/model/types";
-import CustomButton from "shared/ui/Button";
+import { CustomButton } from "shared";
 
 interface IUserInterfaceProps {
     userName: string,

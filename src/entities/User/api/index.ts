@@ -1,7 +1,6 @@
 import { v4 as uuidv4 } from 'uuid';
 
-import { ERROR } from 'shared/model/constants';
-import { ADMIN_USER, USERS } from 'shared/model/mockData';
+import { GlobalConstant, MockData } from 'shared';
 
 import { EMPTY_USER, Role, Status, User } from '../model/types';
 
@@ -12,11 +11,11 @@ export const fakeGetUser = (
 ): Promise<User> => {
     return fetch('https://pokeapi.co/api/v2/pokemon/ditto')
         .then((res) => {
-            if (res.status === 404) throw new Error(ERROR[res.status]);
+            if (res.status === 404) throw new Error(GlobalConstant.ERROR[res.status]);
 
-            if (password === 'admin') return ADMIN_USER;
+            if (password === 'admin') return MockData.ADMIN_USER;
             if (password === 'user') {
-                return USERS.find((user) => user.nickname === userName) || {
+                return MockData.USERS.find((user) => user.nickname === userName) || {
                     ...EMPTY_USER,
                     id: uuidv4(),
                     nickname: userName,

@@ -4,7 +4,7 @@ interface Props {
     children: React.ReactNode
 }
 
-const AppWrapper = (props: Props) => {
+export const AppWrapper = (props: Props) => {
     const { children } = props;
 
     return (
@@ -12,5 +12,3 @@ const AppWrapper = (props: Props) => {
             {children}
         </div> );
 }
-
-export default AppWrapper;

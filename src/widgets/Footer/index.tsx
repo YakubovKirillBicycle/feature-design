@@ -1,6 +1,6 @@
 import { memo } from "react";
 
-import { WidthWrapContainer } from "shared/ui/WidthWrapContainer";
+import { WidthWrapContainer } from "shared";
 
 import { footerStyle } from "./ui/style";
 

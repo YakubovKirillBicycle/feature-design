@@ -1,22 +1,15 @@
 import * as Helpers from './helpers'
-import AppWrapper from "./ui/AppWrapper";
-import CustomButton from "./ui/Button";
-import InputField from "./ui/Input";
-import Loader from "./ui/Loader";
-import Logo from "./ui/Logo";
-import LogoImage from "./ui/Logo/LogoImage";
-import ModalWrap from "./ui/ModalWrap";
-import { WidthWrapContainer } from "./ui/WidthWrapContainer";
 
 export { Helpers }
 
-export default {
-    LogoImage,
-    CustomButton,
-    InputField,
-    Logo,
-    ModalWrap,
-    WidthWrapContainer,
-    AppWrapper,
-    Loader,
-};
+export * as AppModel from './model';
+export * as MockData from './model/mockData';
+export * as GlobalConstant from './model/constants';
+
+export { AppWrapper } from './ui/AppWrapper';
+export { CustomButton } from './ui/Button';
+export { InputField } from './ui/Input';
+export { Loader } from './ui/Loader';
+export { Logo } from './ui/Logo';
+export { ModalWrap } from './ui/ModalWrap';
+export { WidthWrapContainer } from './ui/WidthWrapContainer';

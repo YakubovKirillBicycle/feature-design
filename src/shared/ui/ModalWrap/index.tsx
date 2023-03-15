@@ -5,7 +5,7 @@ interface Props {
     children: React.ReactNode
 }
 
-const ModalWrap = (props: Props) => {
+export const ModalWrap = (props: Props) => {
     const { children } = props;
 
     return (
@@ -15,5 +15,3 @@ const ModalWrap = (props: Props) => {
             </ModalContent>
         </div> );
 }
- 
-export default ModalWrap;

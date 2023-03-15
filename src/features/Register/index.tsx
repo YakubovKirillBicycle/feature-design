@@ -1,4 +1,5 @@
-import CustomButton from "shared/ui/Button";
+import { CustomButton } from "shared";
+
 
 const Register = () => {
   return ( <CustomButton buttonText="Register" /> );

@@ -1,7 +1,7 @@
-import LogoImage from "./LogoImage";
+import { LogoImage } from "./LogoImage";
 import { LogoStyle } from "./style";
 
-const Logo = () => {
+export const Logo = () => {
   return ( 
     <div className={LogoStyle}>
       <LogoImage width={35} />
@@ -9,5 +9,3 @@ const Logo = () => {
     </div>
    );
 }
-
-export default Logo;

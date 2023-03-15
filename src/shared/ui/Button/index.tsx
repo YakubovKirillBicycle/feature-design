@@ -20,7 +20,7 @@ interface TransparentButtonProps {
   disabled?: boolean
 }
 
-const CustomButton = (props: TransparentButtonProps) => {
+export const CustomButton = (props: TransparentButtonProps) => {
   const { buttonText, buttonType, buttonProps, disabled } = props;
   const buttonStyles = {
     [ButonType.TRANSPARENT_LIGHT]: buttonStyle,
@@ -53,5 +53,3 @@ const CustomButton = (props: TransparentButtonProps) => {
     </button>
   );
 }
- 
-export default CustomButton;

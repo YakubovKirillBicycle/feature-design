@@ -6,10 +6,7 @@ import { useNavigate } from "react-router";
 import { UserModel } from "entities/User";
 import { LoginModel } from "features/Login";
 import { EMPTY_FORM } from "features/Login/model/helpers";
-import { LoadingStatus } from "shared/model";
-import { APP_NAVIGATOR } from "shared/model/constants";
-import CustomButton from "shared/ui/Button";
-import InputField from "shared/ui/Input";
+import { CustomButton, InputField , GlobalConstant, AppModel } from "shared";
 
 import { schemloginFormSchema } from "./model/helpers";
 import { modalContentStyle } from "./ui/style";
@@ -26,9 +23,9 @@ const LoginPage = () => {
     });
 
     useEffect(() => {
-        if (loadingState === LoadingStatus.Done && !error && user.id) {
+        if (loadingState === AppModel.LoadingStatus.Done && !error && user.id) {
             reset(EMPTY_FORM);
-            navigate(APP_NAVIGATOR.HOME) 
+            navigate(GlobalConstant.APP_NAVIGATOR.HOME) 
         }
     }, [loadingState])
 
@@ -39,7 +36,7 @@ const LoginPage = () => {
     const onCancelFormHandle = () => {
         reset(EMPTY_FORM);
         clearLoginError();
-        navigate(APP_NAVIGATOR.HOME)
+        navigate(GlobalConstant.APP_NAVIGATOR.HOME)
     }
 
     const onSubmitFormHandle = () => {
@@ -47,7 +44,7 @@ const LoginPage = () => {
         login(getValues().username, getValues().password);
     };
 
-    const submitButtonText = loadingState === LoadingStatus.Loading ? 'Loading' : 'Login';
+    const submitButtonText = loadingState === AppModel.LoadingStatus.Loading ? 'Loading' : 'Login';
 
     return (
         <div className="flex items-center justify-center h-[100%]">
@@ -92,7 +89,7 @@ const LoginPage = () => {
                         <CustomButton
                         buttonText={submitButtonText}
                         buttonProps={{ type: 'submit' }}
-                        disabled={!formState.isValid || loadingState === LoadingStatus.Loading}
+                        disabled={!formState.isValid || loadingState === AppModel.LoadingStatus.Loading}
                         />
                         <CustomButton
                         buttonText="Cancel"
