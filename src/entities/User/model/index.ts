@@ -1,13 +1,17 @@
 import { createAsyncThunk, createSelector, createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import { useSelector } from "react-redux";
 
 import { LoadingStatus } from "shared/model";
 
-import { fakeGetUser } from "../api";
+import { fakeGetUser, getStaticFakeUser } from "../api";
 
 import { EMPTY_USER, User } from "./types";
 
-const initialState = { user: EMPTY_USER, status: LoadingStatus.Done }
+const initialState = { user: EMPTY_USER, status: {
+    state: LoadingStatus.Done,
+    error: null,
+} }
 
 const userSlice = createSlice({
     name: 'user',
@@ -24,13 +28,16 @@ const userSlice = createSlice({
         builder
         .addCase(getUserAction.fulfilled, (state, action: PayloadAction<User>) => {
             state.user = action.payload
-            state.status = LoadingStatus.Done
+            state.status.state = LoadingStatus.Done;
+            state.status.error = null;
         })
         .addCase(getUserAction.pending, (state) => {
-            state.status = LoadingStatus.Loading
+            state.status.state = LoadingStatus.Loading;
+            state.status.error = null;
         })
-        .addCase(getUserAction.rejected, (state) => {
-            state.status = LoadingStatus.Error
+        .addCase(getUserAction.rejected, (state, action: PayloadAction<any>) => {
+            state.status.state = LoadingStatus.Error;
+            state.status.error = action.payload;
         })
       },
 })
@@ -48,8 +55,8 @@ export const userStatusSelector = () => useSelector(
 
 export const getUserAction = createAsyncThunk(
     'user/get',
-    async (params: {username: string, password: string}, thunkAPI) => {
-      const response = await fakeGetUser(params.username, params.password)
+    async (params: {username: string, password: string}, { rejectWithValue }) => {
+      const response = await fakeGetUser(params.username, params.password, rejectWithValue)
       return response
     }
 )

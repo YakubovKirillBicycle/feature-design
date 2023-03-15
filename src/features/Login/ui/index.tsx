@@ -1,4 +1,5 @@
 import { yupResolver } from "@hookform/resolvers/yup";
+import { useEffect } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { useNavigate } from "react-router";
 
@@ -15,13 +16,14 @@ import { modalContentStyle } from "./style";
 
 const Login = () => {
   const status = UserModel.userStatusSelector();
+  const data = UserModel.userStatusSelector()
   const { handleSubmit, control, getValues, formState, reset } = useForm({
     mode: 'onChange',
     defaultValues: EMPTY_FORM,
     resolver: yupResolver(schemloginFormSchema),
   });
   const dispatch = useAppDispatch();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const onSubmitFormHandle = () => {
     dispatch(UserModel.getUserAction({
@@ -37,7 +39,7 @@ const Login = () => {
     navigate(APP_NAVIGATOR.HOME)
   }
 
-  const submitButtonText = status === LoadingStatus.Loading ? 'Loading' : 'Login';
+  const submitButtonText = status.state === LoadingStatus.Loading ? 'Loading' : 'Login';
 
   return (
       <div className={modalContentStyle}>
@@ -76,7 +78,7 @@ const Login = () => {
             <CustomButton
               buttonText={submitButtonText}
               buttonProps={{ type: 'submit' }}
-              disabled={!formState.isValid || status === LoadingStatus.Loading}
+              disabled={!formState.isValid || status.state === LoadingStatus.Loading}
             />
             <CustomButton
               buttonText="Cancel"

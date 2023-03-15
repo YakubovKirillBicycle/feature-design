@@ -1,3 +1,7 @@
+import * as LoginModel from './model/hooks'
 import Login from "./ui";
 
-export { Login };
+export {
+    Login,
+    LoginModel,
+};
