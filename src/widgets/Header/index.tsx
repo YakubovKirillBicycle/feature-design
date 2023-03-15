@@ -1,7 +1,6 @@
 import { useNavigate } from "react-router";
 
-import { UserModel } from "entities/User";
-import { UserInterface } from "entities/User/ui/UserInterface";
+import { UserInterface, UserModel } from "entities/User";
 import {
   AppModel,
   CustomButton,

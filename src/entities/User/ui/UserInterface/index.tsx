@@ -1,9 +1,9 @@
-import { Role } from "entities/User/model/types";
+import { UserType } from "entities/User";
 import { CustomButton } from "shared";
 
 interface IUserInterfaceProps {
     userName: string,
-    role: Role,
+    role: UserType.Role,
     onLogout: VoidFunction,
 }
   
