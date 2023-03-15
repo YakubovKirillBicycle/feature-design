@@ -1,10 +1,9 @@
 import { createAsyncThunk, createSelector, createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import { useSelector } from "react-redux";
 
 import { LoadingStatus } from "shared/model";
 
-import { fakeGetUser, getStaticFakeUser } from "../api";
+import { fakeGetUser } from "../api";
 
 import { EMPTY_USER, User } from "./types";
 
@@ -22,6 +21,12 @@ const userSlice = createSlice({
         },
         clearUser: (state) => {
             state.user = EMPTY_USER
+        },
+        clearUserError: (state) => {
+            state.status = {
+                state: LoadingStatus.Done,
+                error: null,
+            }
         }
     },
     extraReducers: (builder) => {

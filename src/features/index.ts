@@ -1,3 +1,3 @@
-import { Login } from "./Login";
+import { LoginModel } from "./Login";
 
-export { Login };
+export { LoginModel };
