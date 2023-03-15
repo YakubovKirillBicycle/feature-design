@@ -1,5 +1,3 @@
-import { memo } from "react";
-
 import { WidthWrapContainer } from "shared";
 
 import { footerStyle } from "./ui/style";
@@ -14,4 +12,4 @@ const Footer = () => {
    );
 }
  
-export default memo(Footer);
+export default Footer;
