@@ -1,5 +1,1 @@
-import * as LoginModel from './model/hooks'
-
-export {
-    LoginModel,
-};
+export * as Login from './model'

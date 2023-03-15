@@ -4,8 +4,7 @@ import { Controller, useForm } from "react-hook-form";
 import { useNavigate } from "react-router";
 
 import { UserModel } from "entities/User";
-import { LoginModel } from "features/Login";
-import { EMPTY_FORM } from "features/Login/model/helpers";
+import { Login } from "features";
 import { CustomButton, InputField , GlobalConstant, AppModel } from "shared";
 
 import { schemloginFormSchema } from "./model/helpers";
@@ -15,16 +14,16 @@ const LoginPage = () => {
     const user = UserModel.userSelector();
     const navigate = useNavigate();
 
-    const { login, loadingState, error, clearLoginError } = LoginModel.useAuth();
+    const { login, loadingState, error, clearLoginError } = Login.Hooks.useAuth();
     const { handleSubmit, control, getValues, formState, reset } = useForm({
         mode: 'onChange',
-        defaultValues: EMPTY_FORM,
+        defaultValues: Login.Helpers.EMPTY_FORM,
         resolver: yupResolver(schemloginFormSchema),
     });
 
     useEffect(() => {
         if (loadingState === AppModel.LoadingStatus.Done && !error && user.id) {
-            reset(EMPTY_FORM);
+            reset(Login.Helpers.EMPTY_FORM);
             navigate(GlobalConstant.APP_NAVIGATOR.HOME) 
         }
     }, [loadingState])
@@ -34,7 +33,7 @@ const LoginPage = () => {
     }, [])
     
     const onCancelFormHandle = () => {
-        reset(EMPTY_FORM);
+        reset(Login.Helpers.EMPTY_FORM);
         clearLoginError();
         navigate(GlobalConstant.APP_NAVIGATOR.HOME)
     }
