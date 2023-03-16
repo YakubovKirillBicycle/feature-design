@@ -1,11 +1,16 @@
 import { memo } from "react";
+import { useNavigate } from "react-router";
 
 import { PageHeader } from "shared";
 
 const UsersAdminPanel = () => {
+    const navigate = useNavigate();
+
+    const navigateHandle = () => navigate(-1);
+
     return ( 
         <div>
-            <PageHeader text='Users' />
+            <PageHeader text='Users' navigate={navigateHandle} />
         </div>
      );
 }
