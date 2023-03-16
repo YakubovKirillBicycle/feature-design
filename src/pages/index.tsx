@@ -16,6 +16,8 @@ import { contentStyle, contentWrapStyle } from "./ui/style";
 const HomePage = lazy(() => import("pages/HomePage"));
 const PageNotFound = lazy(() => import("pages/404"));
 const LoginPage = lazy(() => import("pages/LoginPage"));
+const AdminPage = lazy(() => import('pages/AdminPage'));
+const UsersAdminPanel = lazy(() => import('pages/AdminPage/UsersAdminPanel'));
 
 export const Routing = () => {
     return (
@@ -28,6 +30,8 @@ export const Routing = () => {
                             <Routes>
                                 <Route path={GlobalConstant.APP_NAVIGATOR.HOME} element={<HomePage />} />
                                 <Route path={GlobalConstant.APP_NAVIGATOR.LOGIN} element={<LoginPage />} />
+                                <Route path={GlobalConstant.APP_NAVIGATOR.ADMIN.HOME} element={<AdminPage />} />
+                                <Route path={GlobalConstant.APP_NAVIGATOR.ADMIN.USERS} element={<UsersAdminPanel />} />
                                 <Route path={GlobalConstant.APP_NAVIGATOR.ANY_PAGE} element={<PageNotFound />} />
                             </Routes>
                         </Suspense>

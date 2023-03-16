@@ -1,6 +1,10 @@
 export const APP_NAVIGATOR = {
     HOME: '/',
     LOGIN: '/login',
+    ADMIN: {
+        HOME: '/admin',
+        USERS: '/admin/users'
+    },
     ANY_PAGE: '*',
 }
 

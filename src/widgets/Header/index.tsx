@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router";
 
-import { UserInterface, UserModel } from "entities/User";
+import { UserInterface, UserModel, UserType } from "entities/User";
 import {
   AppModel,
   CustomButton,
@@ -30,7 +30,12 @@ export const Header = () => {
         <div className="flex justify-between">
           <Logo />
           {user.id.length > 0 ? 
-            <UserInterface userName={user.nickname} role={user.role} onLogout={logoutHandle} />
+            <UserInterface
+              userName={user.nickname}
+              role={user.role}
+              onLogout={logoutHandle}
+              isAdmin={user.role === UserType.Role.admin}
+            />
             : <div className="flex space-x-2">
                 <CustomButton buttonText="Login" buttonProps={{ onClick: loginClickHandle }} />
               </div>

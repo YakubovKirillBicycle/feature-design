@@ -13,3 +13,4 @@ export { Loader } from './ui/Loader';
 export { Logo } from './ui/Logo';
 export { ModalWrap } from './ui/ModalWrap';
 export { WidthWrapContainer } from './ui/WidthWrapContainer';
+export { PageHeader } from './ui/PageHeader'

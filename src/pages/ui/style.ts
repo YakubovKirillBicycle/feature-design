@@ -2,6 +2,7 @@ export const contentWrapStyle = [
     'min-h-full',
     'justify-center',
     'flex',
+    'transition duration-300 ease-in-out',
   ].join(' ');
 
 export const contentStyle = [
