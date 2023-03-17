@@ -44,7 +44,7 @@ const userSlice = createSlice({
             state.status.state = AppModel.LoadingStatus.Error;
             state.status.error = action.payload;
         })
-      },
+    },
 })
 
 export const {setUser, clearUser} = userSlice.actions
