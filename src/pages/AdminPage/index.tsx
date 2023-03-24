@@ -1,24 +1,27 @@
 import { memo, useEffect } from "react";
-import { useSelector } from "react-redux";
 import { useNavigate } from "react-router";
 
 import { MachineModel } from "entities/Machine";
 import { UserListModel } from "entities/User";
-import { AppModel, MockData, PageHeader } from "shared";
+import { AppModel, GlobalConstant, PageHeader } from "shared";
 import { useAppDispatch } from "shared/model";
 import { AdminControlEntity } from "widgets/AdminControl";
 
 const AdminPage = () => {
     const navigate = useNavigate();
     const dispatch = useAppDispatch();
-    const usersUploadStatus = UserListModel.userListStatusSelector();
-    const userListLength = UserListModel.userListLengthSelector();
 
-    const machines = useSelector(MachineModel.selectAll);
+    const userListLength = UserListModel.userListLengthSelector();
+    const usersUploadStatus = UserListModel.userListStatusSelector();
+
+    const machines = MachineModel.allMachinesSelector();
+    const activeMachinesCount = MachineModel.machinesLengthByStatusSelector(MachineModel.MachineStatus.Active);
+    const disabledMachinesCount = MachineModel.machinesLengthByStatusSelector(MachineModel.MachineStatus.Disabled);
 
     const navigateHandle = () => navigate(-1);
+
     useEffect(() => {
-        dispatch(MachineModel.actions.addMachines(MockData.MACHINE_STORE))
+        dispatch(MachineModel.actions.addMachines(MachineModel.getMockMachines()))
         dispatch(UserListModel.getUsersAction())
     }, []);
 
@@ -30,10 +33,14 @@ const AdminPage = () => {
                         count={userListLength}
                         header="Users"
                         isLoading={usersUploadStatus.state === AppModel.LoadingStatus.Loading}
+                        navigateTo={GlobalConstant.APP_NAVIGATOR.ADMIN.USERS}
                     />
                     <AdminControlEntity
                         header="Machines"
                         count={machines.length}
+                        activeCount={activeMachinesCount}
+                        disabledCount={disabledMachinesCount}
+                        navigateTo={GlobalConstant.APP_NAVIGATOR.ADMIN.VENDORS}
                     />
                 </div>
             </div>

@@ -1,11 +1,9 @@
 import { MachineModel } from "entities/Machine";
 import { UserListModel } from "entities/User";
 
-import { getVendorsWithStatus } from "./model/helpers";
-
 const UserItemStyle = [
     "bg-zinc-200",
-    "w-[200px] min-h-[100px] h-max",
+    "w-[250px] min-h-[100px] h-max",
     "rounded-[10px]",
     "p-2",
     "shadow-xl",
@@ -19,27 +17,29 @@ const UserItemStyle = [
     'transition duration-400 ease-in-out',
 ].join(' ')
 
-export const UsersList = () => {
-    const usersList = UserListModel.userListSelector();
+export const VendorsList = () => {
     const vendorsList = MachineModel.allMachinesSelector();
 
     return (
         <div>
             <div className="flex flex-wrap flex-auto items-center justify-evenly">
                 {
-                    usersList.map((user) => (
-                        <div className={UserItemStyle} key={user.id}>
+                    vendorsList.map((vendor) => (
+                        <div className={UserItemStyle} key={vendor.id}>
                             <div className="flex justify-center items-center">
-                                <span>{user.nickname}</span>
+                                <span>{vendor.name}</span>
                             </div>
                             <div>
-                                <span>All vendors: {user.items.length}</span>
+                                <span>Owner: {UserListModel.userByIdSelector(vendor.owner)?.nickname}</span>
                             </div>
                             <div>
-                                <span>Active: {getVendorsWithStatus(user.items, vendorsList, MachineModel.MachineStatus.Active).length}</span>
+                                <span>Status: {MachineModel.MachineStatus[vendor.status]}</span>
                             </div>
                             <div>
-                                <span>Disabled: {getVendorsWithStatus(user.items, vendorsList, MachineModel.MachineStatus.Disabled).length}</span>
+                                <span>Cost: ${vendor.cost}</span>
+                            </div>
+                            <div>
+                                <span>Day profit: ${vendor.dayProfit}</span>
                             </div>
                         </div>
                     ))

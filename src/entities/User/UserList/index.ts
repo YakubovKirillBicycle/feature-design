@@ -66,6 +66,8 @@ export const userListStatusSelector = () => useSelector(
     createSelector((state: RootState) => state.userList, (state) => state.status)
 )
 
+export const userByIdSelector = (id: string) => useSelector((state: RootState) => usersSelectors.selectById(state, id))
+
 export const userListSelector = () => useSelector(usersSelectors.selectAll);
 
 export const userListLengthSelector = () => useSelector(usersSelectors.selectAll).length;

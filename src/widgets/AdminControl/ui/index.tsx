@@ -20,17 +20,21 @@ const UserControlItemStyle = [
 
 interface IUserControlItem {
     count?: number;
-    header?: string,
+    header: string,
     activeCount?: number;
+    disabledCount?: number,
     isLoading?: boolean;
+    navigateTo: string,
 }
 
 export const AdminControlEntity = (props: IUserControlItem) => {
     const {
-        count: usersCount=0,
-        activeCount=0,
+        count: usersCount,
+        activeCount,
+        disabledCount,
         isLoading=false,
-        header='Item'
+        header='Item',
+        navigateTo
     } = props;
 
     if (isLoading) return (
@@ -45,17 +49,27 @@ export const AdminControlEntity = (props: IUserControlItem) => {
     );
 
     return (
-        <Link to={GlobalConstant.APP_NAVIGATOR.ADMIN.USERS}>
+        <Link to={navigateTo}>
             <div className={UserControlItemStyle}>
                 <div className="flex items-center justify-center">
                     <span>{header}</span>
-                </div> 
-                <div>
-                    <span>All: {usersCount}</span> 
                 </div>
-                <div>
-                    <span>Active: {activeCount}</span> 
-                </div>
+                {usersCount && 
+                    <div>
+                        <span>All: {usersCount}</span> 
+                    </div>
+                }
+                {activeCount && 
+                    <div>
+                        <span>Active: {activeCount}</span> 
+                    </div>
+                }
+                {disabledCount && 
+                    <div>
+                        <span>Disabled: {disabledCount}</span> 
+                    </div>
+                }
+                
             </div>
         </Link>
      );

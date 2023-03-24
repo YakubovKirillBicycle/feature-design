@@ -1,4 +1,7 @@
 import { createEntityAdapter, createSlice } from "@reduxjs/toolkit"
+import { useSelector } from "react-redux";
+
+import { getMachines } from "../api";
 
 export enum MachineStatus {
     Active,
@@ -53,3 +56,11 @@ export const {
     selectById,
     selectAll,
 } = machinesSelectors;
+
+export const allMachinesSelector = () => useSelector(machinesSelectors.selectAll)
+
+export const machinesLengthByStatusSelector = (status: MachineStatus) => useSelector(machinesSelectors.selectAll)
+    .filter((machine) => machine.status === status)
+    .length;
+
+export const getMockMachines = () => getMachines()

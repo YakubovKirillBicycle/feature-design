@@ -4,7 +4,8 @@ export const APP_NAVIGATOR = {
     ADMIN: {
         HOME: '/admin',
         USERS: '/admin/users',
-        USER_BY_ID: '/admin/users/:id'
+        USER_BY_ID: '/admin/users/:id',
+        VENDORS: '/admin/vendors',
     },
     ANY_PAGE: '*',
 }
