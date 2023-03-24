@@ -1,4 +1,5 @@
-import { PayloadAction, createAsyncThunk, createEntityAdapter, createSlice } from "@reduxjs/toolkit";
+import { PayloadAction, createAsyncThunk, createEntityAdapter, createSelector, createSlice } from "@reduxjs/toolkit";
+import { useSelector } from "react-redux";
 
 import { AppModel } from "shared";
 
@@ -11,7 +12,7 @@ const usersAdapter = createEntityAdapter<User>({
 });
 
 const initState = {
-    userList: usersAdapter.getInitialState(),
+    userList: usersAdapter.getInitialState([]),
     status: {
         state: AppModel.LoadingStatus.Done,
         error: null,
@@ -54,12 +55,16 @@ const UserListSlice = createSlice({
 
 export const { reducer, actions }  = UserListSlice
 
-const usersSelectors = usersAdapter.getSelectors((state: RootState) => state.userList );
+const usersSelectors = usersAdapter.getSelectors((state: RootState) => state.userList.userList );
 
 export const {
     selectById,
     selectAll,
 } = usersSelectors;
+
+export const userListStatusSelector = () => useSelector(
+    createSelector((state: RootState) => state.userList, (state) => state.status)
+)
 
 export const getUsersAction = createAsyncThunk(
     'users/get',

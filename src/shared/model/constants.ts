@@ -3,7 +3,8 @@ export const APP_NAVIGATOR = {
     LOGIN: '/login',
     ADMIN: {
         HOME: '/admin',
-        USERS: '/admin/users'
+        USERS: '/admin/users',
+        USER_BY_ID: '/admin/users/:id'
     },
     ANY_PAGE: '*',
 }

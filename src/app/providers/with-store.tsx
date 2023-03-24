@@ -4,11 +4,12 @@ import { Provider } from "react-redux"
 
 
 import { MachineModel } from "entities/Machine";
-import { UserModel } from "entities/User";
+import { UserListModel, UserModel } from "entities/User";
 
 export const store = configureStore({
     reducer: {
       user: UserModel.UserReducer,
+      userList: UserListModel.reducer,
       machines: MachineModel.reducer,
     },
     middleware: (getDefaultMiddleware) => 
