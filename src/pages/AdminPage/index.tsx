@@ -6,13 +6,13 @@ import { MachineModel } from "entities/Machine";
 import { UserListModel } from "entities/User";
 import { AppModel, MockData, PageHeader } from "shared";
 import { useAppDispatch } from "shared/model";
-import { UserControlItem } from "widgets/UserControl";
+import { AdminControlEntity } from "widgets/AdminControl";
 
 const AdminPage = () => {
     const navigate = useNavigate();
     const dispatch = useAppDispatch();
     const usersUploadStatus = UserListModel.userListStatusSelector();
-    const userList = useSelector(UserListModel.selectAll)
+    const userListLength = UserListModel.userListLengthSelector();
 
     const machines = useSelector(MachineModel.selectAll);
 
@@ -26,12 +26,12 @@ const AdminPage = () => {
             <div>
                 <PageHeader text='Admin panel' navigate={navigateHandle} />
                 <div className="flex flex-wrap flex-auto items-center justify-evenly">
-                    <UserControlItem
-                        count={userList.length}
+                    <AdminControlEntity
+                        count={userListLength}
                         header="Users"
                         isLoading={usersUploadStatus.state === AppModel.LoadingStatus.Loading}
                     />
-                    <UserControlItem
+                    <AdminControlEntity
                         header="Machines"
                         count={machines.length}
                     />

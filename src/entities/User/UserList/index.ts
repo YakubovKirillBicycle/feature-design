@@ -66,6 +66,10 @@ export const userListStatusSelector = () => useSelector(
     createSelector((state: RootState) => state.userList, (state) => state.status)
 )
 
+export const userListSelector = () => useSelector(usersSelectors.selectAll);
+
+export const userListLengthSelector = () => useSelector(usersSelectors.selectAll).length;
+
 export const getUsersAction = createAsyncThunk(
     'users/get',
     async (_, { rejectWithValue }) => {

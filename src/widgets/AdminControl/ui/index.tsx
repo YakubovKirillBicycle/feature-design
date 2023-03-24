@@ -25,13 +25,14 @@ interface IUserControlItem {
     isLoading?: boolean;
 }
 
-export const UserControlItem = (props: IUserControlItem) => {
+export const AdminControlEntity = (props: IUserControlItem) => {
     const {
         count: usersCount=0,
         activeCount=0,
         isLoading=false,
         header='Item'
     } = props;
+
     if (isLoading) return (
         <div className={UserControlItemStyle}>
             <div className="flex items-center justify-center">
@@ -42,6 +43,7 @@ export const UserControlItem = (props: IUserControlItem) => {
             </div> 
         </div>
     );
+
     return (
         <Link to={GlobalConstant.APP_NAVIGATOR.ADMIN.USERS}>
             <div className={UserControlItemStyle}>
