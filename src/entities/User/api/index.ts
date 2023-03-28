@@ -33,11 +33,3 @@ export const fakeGetUser = (
         })})
         .catch((err) => reject(err.message));
 }
-
-export const getStaticFakeUser = () => ({
-    ...EMPTY_USER,
-    id: uuidv4(),
-    nickname: 'admin',
-    role: 'admin' as unknown as Role,
-    status: 'online' as unknown as Status
-})

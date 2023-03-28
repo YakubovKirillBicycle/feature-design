@@ -55,8 +55,9 @@ const UserListSlice = createSlice({
 
 export const { reducer, actions }  = UserListSlice
 
-const usersSelectors = usersAdapter.getSelectors((state: RootState) => state.userList.userList );
 
+// Selectors
+const usersSelectors = usersAdapter.getSelectors((state: RootState) => state.userList.userList );
 export const {
     selectById,
     selectAll,
@@ -65,13 +66,12 @@ export const {
 export const userListStatusSelector = () => useSelector(
     createSelector((state: RootState) => state.userList, (state) => state.status)
 )
-
 export const userByIdSelector = (id: string) => useSelector((state: RootState) => usersSelectors.selectById(state, id))
-
 export const userListSelector = () => useSelector(usersSelectors.selectAll);
-
 export const userListLengthSelector = () => useSelector(usersSelectors.selectAll).length;
 
+
+// Thunk
 export const getUsersAction = createAsyncThunk(
     'users/get',
     async (_, { rejectWithValue }) => {
