@@ -1,4 +1,3 @@
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { Button } from "@mui/material";
 
 interface IPageHeader {
@@ -14,7 +13,7 @@ export const PageHeader = (props: IPageHeader) => {
                 variant="text"
                 onClick={navigate}
                 className='text-slate-700 text-2xl'
-                startIcon={<ArrowBackIcon />}
+                startIcon={<div>Back</div>}
             />
             <span>{text}</span>
         </div>
